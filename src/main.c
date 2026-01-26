@@ -1,63 +1,39 @@
 #include <stdio.h>
 
-//Se uso otro tipo de dato en ves de int, en este caso seria double 
+/*
+    En este paso se declara el nombre de la funcion como is _even
+    y se define que recibe un parametro de tipo entero.
+    La funcion retorna 1 si el numero es par y 0 si es impar.
 
-double area(double lado)
+*/
+
+int is_even(int numero)
 {
-    return lado * lado;
+    if (numero % 2 == 0)
+        return 1; // Verdadero
+    else
+        return 0; // Falso
 }
-
-
-double volumen(double lado)
-{
-    return lado * lado * lado;
-}
-
-//El double se uso para poder insertar tanto enteros como decimales
 
 int main()
 {
-    double x = 0;
+    int numero;
 
+//En esta parte se solicita al usuario que ingrese un numero
+// y se almacena en la variable numero.
 
-   printf(
-    "========================================\n"
-    "          Eejercicio 01\n"
-    "            by H3X0X\n"
-    "========================================\n"
-    "\n"
-    "  Square                    Cube \n"
-    "\n"
-    "+---------+              +---------+\n"
-    "|         |             /         /|\n"
-    "|         |            +---------+ |\n"
-    "|         |            |         | +\n"
-    "+---------+            |         |/\n"
-    "                       +---------+\n"
-    "\n"
-);
+    printf("Ingrese un numero para testear: ");
+    scanf("%i", &numero);
 
-//El %lf se uso para leer los double
+//Se llama a la funcion is_even para verificar si el numero es par o impar   
 
-    printf("Enter the side of length:");
-    scanf("%lf" , &x);
+    if (is_even(numero))
 
-    double a = area(x);
-    double v = volumen(x);
+        printf("EL NUMERO ES PAR.\n", numero);
 
-//En esta parte se le agrego un if para dar error si se entra un valor - y no +
+    else
 
-    if (x < 0)
-    {
-        printf("Error: El valor debe de ser positivo\n");
-        return 1;
-    }
+        printf("EL NUMERO ES IMPAR.\n", numero);
 
-//En esta parte el %.2f se uso para dar el resultado con solo 2 decimales
-
-    printf("Area: %.2f\n" , a);
-    printf("Volumen: %.2f\n" , v);
     return 0;
-
-
 }
